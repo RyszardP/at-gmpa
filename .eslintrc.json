@@ -1,0 +1,162 @@
+{
+  "plugins": [
+    "wdio",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jasmine": true,
+    "mocha": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:wdio/recommended",
+    "prettier"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "$": true,
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "babelOptions": {
+      "configFile": "./babel.config.js"
+    }
+  },
+  "rules": {
+    "function-call-argument-newline": ["error", "consistent"],
+    "space-in-parens": ["error", "never"],
+    "template-curly-spacing": ["error", "never"],
+    "indent": [2, 2, { "SwitchCase": 1}],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
+    "no-extra-semi": "error",
+    "no-unused-vars": "warn",
+    "react/prop-types": 0,
+    "no-fallthrough": "warn",
+    "no-case-declarations": "off",
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "object-shorthand": "error",
+    "quote-props": ["error", "as-needed"],
+    "array-callback-return": "warn",
+    "prefer-destructuring": [
+      "warn",
+      {
+        "array": false,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-template": "error",
+    "no-useless-concat": "error",
+    "no-eval": "error",
+    "prefer-spread": "warn",
+    "no-param-reassign": "error",
+    "prefer-arrow-callback": "warn",
+    "arrow-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "keyword-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "arrow-body-style": ["warn", "as-needed"],
+    "arrow-parens": ["warn", "as-needed"],
+    "no-duplicate-imports": "error",
+    "no-iterator": "warn",
+    "dot-notation": "warn",
+    "no-undef": "error",
+    "prefer-const": "warn",
+    "no-var": "error",
+    "one-var": ["warn", "never"],
+    "no-multi-assign": "error",
+    "eqeqeq": ["warn", "smart"],
+    "no-nested-ternary": "error",
+    "no-unneeded-ternary": "error",
+    "space-before-blocks": "warn",
+    "space-infix-ops": "error",
+    "padded-blocks": ["error", "never"],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true,
+        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
+      }
+    ],
+    "no-multiple-empty-lines": "error",
+    "array-bracket-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "block-spacing": "error",
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "func-call-spacing": ["error", "never"],
+    "key-spacing": [
+      "error",
+      {
+        "mode": "strict"
+      }
+    ],
+    "comma-dangle": ["error", "always-multiline"],
+    "camelcase": "off",
+    "curly": 2,
+    "default-case": 2,
+    "block-scoped-var": 2,
+    "consistent-return": ["error", { "treatUndefinedAsUnspecified": false }],
+    "default-case-last": 2,
+    "default-param-last": 2,
+    "dot-location": ["error", "property"],
+    "guard-for-in": 2,
+    "max-classes-per-file": 2,
+    "no-constructor-return": 2,
+    "no-else-return": 2,
+    "no-implicit-coercion": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 2,
+    "no-multi-spaces": 2,
+    "no-new": 2,
+    "no-new-func": 2,
+    "no-new-wrappers": 2,
+    "no-sequences": 2,
+    "require-await": 2,
+    "init-declarations": 2,
+    "brace-style": ["error", "1tbs"],
+    "capitalized-comments": 0,
+    "comma-style": 2,
+    "computed-property-spacing": 2,
+    "eol-last": 2,
+    "jsx-quotes": ["error", "prefer-double"],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "newline-per-chained-call": 0,
+    "no-bitwise": 2,
+    "no-lonely-if": 2,
+    "no-trailing-spaces": 2,
+    "no-whitespace-before-property": 2,
+    "one-var-declaration-per-line": 2,
+    "prefer-rest-params": 2
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+allure-report/
+report/
+babel.config.js
+wdio.conf.js
+wdio.mocha.conf.js
+*.cy.js,
+cypress/
+cypress.config.js
