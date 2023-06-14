@@ -1,12 +1,12 @@
 Feature: Open Dashboard page. Add new dashboard, edit and delete
   Background:
     Given Log in to RP
-
+  @dashboard
   Scenario: Open Dashboard page
     Then Check "sidebar" is present
     When Hover on "dashboard" button in side menu
     Then Check "Dashboards" popup is present
-    When Click on "dashboard" button
+    When Click on "dashboar" button
   @dashboard
   Scenario: Add and delete new dashboard
     Then Check "sidebar" is present
