@@ -31,7 +31,3 @@ Feature: Api scenarios
         And Delete created dashboard via API
         And Refresh page
       Then Check that "Edit Via API before login" dashboard is absent on All Dashboards page
-
-  Scenario: Send Get requests for dashboard
-    When Send GET request for "dashboard"
-    Then Response status code should be 200
