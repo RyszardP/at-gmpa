@@ -1,6 +1,6 @@
-import { argv } from 'yargs';
-import { initUrl } from './modeConfiguration';
-import { existsSync, mkdirSync } from 'fs';
+import {argv} from 'yargs';
+import {initUrl} from './modeConfiguration';
+import {existsSync, mkdirSync} from 'fs';
 
 const allure = require('allure-commandline');
 
@@ -45,15 +45,12 @@ export const config = {
     ignoreUndefinedDefinitions: false,
   },
   reporters: [
-    'spec',
-    [
-      'allure',
-      {
-        outputDir: 'report',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: false,
-      },
-    ],
+    ['junit', {
+      outputDir: './junitReport',
+      outputFileFormat: function(options) { // optional
+        return `results-${options.cid}.xml`
+      }
+    }]
   ],
   services: ['chromedriver'],
 
@@ -61,13 +58,13 @@ export const config = {
     console.warn(`${step.keyword} ${step.text}`);
   },
 
-  async afterStep(step, scenario, { error }) {
+  async afterStep(step, scenario, {error}) {
     if (error) {
       browser.takeScreenshot();
     }
   },
 
-  afterTest: async (test, context, { error }) => {
+  afterTest: async (test, context, {error}) => {
     if (error) {
       const fileName = test.title + '.png';
       const dirPath = 'report/screenshots/';
