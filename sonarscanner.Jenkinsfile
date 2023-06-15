@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Scan') {
             steps {
-                withSonarQubeEnv('atgm') {
+                withSonarQubeEnv(installationName: 'atgm') {
                         sh 'sonar-scanner'
                 }
             }
