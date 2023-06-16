@@ -10,7 +10,8 @@
     "test": "wdio run configs/wdio.conf.js",
     "test_mocha": "wdio run configs/wdio.mocha.conf.js",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "test_docker": "npm run test -- --appurl=http://localhost:8080/ --usr=superadmin --password=erebus --max-threads=1"
   },
   "repository": {
     "type": "git",
