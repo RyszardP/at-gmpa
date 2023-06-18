@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'npm run test -- --config ./configs/wdio.conf.js --appurl=http://localhost:8080 --tag=@dashboard --usr=superadmin --password=erebus --max-threads=1'
+            }
+        }
+    }
+}
