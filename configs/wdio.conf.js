@@ -7,6 +7,7 @@ const allure = require('allure-commandline');
 export const config = {
   baseUrl: initUrl.rp_ui.baseUrl,
   specs: ['./features/**/*.feature'],
+  port: '4444',
   capabilities: [
     {
       maxInstances: argv['max-threads'] || 2,
@@ -47,12 +48,21 @@ export const config = {
   reporters: [
     ['junit', {
       outputDir: './junitReport',
-      outputFileFormat: function(options) { // optional
+      outputFileFormat: function (options) { // optional
         return `results-${options.cid}.xml`
       }
     }]
   ],
   services: ['chromedriver'],
+
+  dockerOptions: {
+    image: 'selenium/standalone-chrome',
+    healthCheck: 'http://localhost:4444',
+    options: {
+      p: ['4444:4444'],
+      shmSize: '2g'
+    }
+  },
 
   beforeStep(step) {
     console.warn(`${step.keyword} ${step.text}`);
