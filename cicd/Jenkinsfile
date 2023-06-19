@@ -1,36 +1,6 @@
 pipeline {
     agent any
     stages {
-
-      stage('GitHub Webhook') {
-                steps {
-                    script {
-                        def payload = ''
-                        if (env.payload) {
-                            payload = env.payload
-                        } else {
-                            payload = "${params.webhook_payload}"
-                        }
-
-                        if (!payload) {
-                            error('No webhook payload received')
-                        }
-
-                        def secret = '57130bfb6fc24ed7dc399c8efa7bf6af'  // замените на свой секретный токен
-
-                        def hmac = javax.crypto.Mac.getInstance('HmacSHA1')
-                        hmac.init(new javax.crypto.spec.SecretKeySpec(secret.getBytes(), 'HmacSHA1'))
-
-                        def payloadBytes = payload.getBytes('UTF-8')
-                        def hmacBytes = hmac.doFinal(payloadBytes)
-                        def signature = 'sha1=' + hmacBytes.encodeHex().toString()
-
-                        if (signature != env.http_X_Hub_Signature) {
-                            error('Invalid webhook secret')
-                        }
-                    }
-                }
-                }
         stage('Build') {
             steps {
                 bat 'npm install'
