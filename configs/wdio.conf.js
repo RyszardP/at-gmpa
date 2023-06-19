@@ -57,7 +57,10 @@ export const config = {
 
   dockerOptions: {
     image: 'selenium/standalone-chrome',
-    healthCheck: 'http://localhost:4444',
+    healthCheck: {
+      url: 'http://localhost:4444',
+      startDelay: 15000,
+    },
     options: {
       p: ['4444:4444'],
       shmSize: '2g'
