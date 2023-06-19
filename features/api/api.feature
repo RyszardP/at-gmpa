@@ -1,5 +1,5 @@
 Feature: Api scenarios
-
+  @api
   Scenario: Send Get requests
     When Send GET request for "dashboard"
     Then Response status code should be 200
