@@ -14,7 +14,7 @@ ENV npm_config_unsafe_perm true
 
 
 # Chrome dependencies
-RUN apk add bush
+RUN apk add bash
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
