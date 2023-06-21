@@ -12,7 +12,6 @@ ENV npm_config_loglevel warn
 # allow installing when the main user is root
 ENV npm_config_unsafe_perm true
 
-
 # Chrome dependencies
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
@@ -35,7 +34,7 @@ RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.co
 RUN google-chrome --version
 
 # INSTALL PACKAGES
-WORKDIR /usr/wdiowithoutgrid/
+WORKDIR /
 COPY package*.json ./
 COPY . .
 EXPOSE 8080
