@@ -19,7 +19,7 @@ Feature: Api scenarios
       When Log in to RP
         And Open "All Dashboards" page
       Then Check that New Created Dashboard is absent on All Dashboards page
-  @api
+
     Scenario: Create and change via API before log in
       Given Create "dashboard" via API
         And Change status to not shared and name to "Edit Via API before login" for dashboard via API
