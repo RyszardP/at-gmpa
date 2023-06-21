@@ -16,7 +16,7 @@ ENV npm_config_unsafe_perm true
 # Chrome dependencies
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
-RUN apt-get apt-get install oracle-java-8-installer
+RUN apt-get install oracle-java8-installer
 RUN sudo nano /etc/enviroment
 ENV JAVA_HOME "/usr/lib/jvm/java-8-oracle"
 RUN JAVA_HOME "/usr/lib/jvm/java-8-oracle"
