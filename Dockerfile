@@ -32,18 +32,15 @@ ENV PATH $JAVA_HOME/bin:$PATH
 #  apt-get install -f -y && \
 #  rm -f /usr/src/google-chrome-stable_current_amd64.deb
 #RUN google-chrome --version
-RUN apt-get update \
- && apt-get install -y curl gnupg2 \
- # Устанавливаем ключ GPG для репозитория Chromium
- && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
- # Добавляем репозиторий Chromium в источники APT
- && echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
- # Устанавливаем Chromium и связанные пакеты
- && apt-get update \
- && apt-get install -y chromium-browser \
- && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get -y install gnupg && \
+    curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add && \
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && \
+    apt-get -y install google-chrome-stable
 
-RUN chromium-browser --version
+ENV CHROME_BIN=/usr/bin/google-chrome-stable \
+    CHROME_PATH=/usr/bin/google-chrome-stable
 
 # INSTALL PACKAGES
 WORKDIR /usr/wdiowithoutgrid/
