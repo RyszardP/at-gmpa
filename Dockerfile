@@ -34,19 +34,8 @@ RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.co
   rm -f /usr/src/google-chrome-stable_current_amd64.deb
 RUN google-chrome --version
 
-
-#RUN apt-get update && \
-#    apt-get -y install gnupg && \
-#    curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add && \
-#    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
-#    apt-get update && \
-#    apt-get -y install google-chrome-stable
-
-#ENV CHROME_BIN=/usr/bin/google-chrome-stable \
-#    CHROME_PATH=/usr/bin/google-chrome-stable
-
 # INSTALL PACKAGES
-WORKDIR /usr/wdiowithoutgrid/
+#WORKDIR /usr/wdiowithoutgrid/
 COPY package*.json ./
 COPY . .
 EXPOSE 8080
