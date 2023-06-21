@@ -1,4 +1,5 @@
-FROM node:bullseye-slim
+FROM node:lts-alpine3.18
+#FROM node:bullseye-slim
 
 # INSTALL NPM
 RUN npm install -g npm@latest
