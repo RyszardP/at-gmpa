@@ -41,8 +41,8 @@ RUN google-chrome --version
 #    apt-get update && \
 #    apt-get -y install google-chrome-stable
 
-ENV CHROME_BIN=/usr/bin/google-chrome-stable \
-    CHROME_PATH=/usr/bin/google-chrome-stable
+#ENV CHROME_BIN=/usr/bin/google-chrome-stable \
+#    CHROME_PATH=/usr/bin/google-chrome-stable
 
 # INSTALL PACKAGES
 WORKDIR /usr/wdiowithoutgrid/

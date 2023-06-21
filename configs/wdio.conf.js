@@ -53,7 +53,7 @@ export const config = {
       }
     }]
   ],
-  services: ['docker'],
+  services: [],
   dockerLogs: './',
   dockerOptions: {
     image: 'selenium/standalone-chrome',
