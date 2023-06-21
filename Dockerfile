@@ -17,6 +17,7 @@ ENV npm_config_unsafe_perm true
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
+# Java install
 RUN apt-get update \
  && apt-get install -y wget \
  && mkdir -p /usr/share/man/man1 \
