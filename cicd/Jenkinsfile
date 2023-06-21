@@ -1,5 +1,9 @@
 pipeline {
     agent any
+     triggers {
+            githubPush()
+            githubPullRequests()
+        }
     stages {
         stage('Build') {
             steps {
@@ -12,8 +16,4 @@ pipeline {
             }
         }
     }
-     triggers {
-            githubPush()
-            githubPullRequest()
-        }
 }
