@@ -16,10 +16,10 @@ ENV npm_config_unsafe_perm true
 # Chrome dependencies
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
-RUN apt-get install oracle-java8-installer
+RUN sudo apt-get install oracle-java11-installer
 RUN sudo nano /etc/enviroment
-ENV JAVA_HOME "/usr/lib/jvm/java-8-oracle"
-RUN JAVA_HOME "/usr/lib/jvm/java-8-oracle"
+ENV JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64/"
+RUN export JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64/"
 RUN echo $JAVA_HOME
 RUN javac -version
 
