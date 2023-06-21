@@ -37,8 +37,6 @@ RUN google-chrome --version
 WORKDIR /usr/lib/wdio
 COPY package.json /usr/lib/wdio
 
-COPY package-lock.json /usr/lib/wdio
-
 RUN npm install \
     # Clean up obsolete files:
     && rm -rf \
