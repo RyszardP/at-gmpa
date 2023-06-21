@@ -1,5 +1,4 @@
-FROM node:lts-alpine3.18
-#FROM node:bullseye-slim
+FROM node:bullseye-slim
 
 # INSTALL NPM
 RUN npm install -g npm@latest
@@ -35,11 +34,18 @@ RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.co
 RUN google-chrome --version
 
 # INSTALL PACKAGES
-WORKDIR /
-COPY package*.json ./
-COPY . .
-EXPOSE 8080
-RUN npm install
+WORKDIR /usr/lib/wdio
+COPY package.json /usr/lib/wdio
+
+COPY package-lock.json /usr/lib/wdio
+
+RUN npm install \
+    # Clean up obsolete files:
+    && rm -rf \
+    /tmp/* \
+    /root/.npm
+
+COPY . /usr/lib/wdio
 
 # Display versions of local tools
 RUN echo  " node version:    $(node -v) \n" \
