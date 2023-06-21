@@ -16,11 +16,16 @@ ENV npm_config_unsafe_perm true
 # Chrome dependencies
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
-RUN apt-get install oracle-java11-installer
-RUN nano /etc/enviroment
-ENV JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64/"
-RUN export JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64/"
-RUN echo $JAVA_HOME
+
+RUN curl -L https://download.oracle.com/java/11/latest/jdk-11_linux-x64_bin.tar.gz \
+ -o /tmp/jdk-11_linux-x64_bin.tar.gz \
+ && tar zxvf /tmp/jdk-11_linux-x64_bin.tar.gz -C /opt \
+ && rm /tmp/jdk-11_linux-x64_bin.tar.gz \
+ && ln -s /opt/jdk-11/bin/java /usr/local/bin/java
+ENV JAVA_HOME /opt/jdk-11
+
+RUN echo "export JAVA_HOME=/opt/jdk-11" >> /etc/environment
+RUN source /etc/environment
 RUN javac -version
 
 ENV CHROME_VERSION 114.0.5735.90
