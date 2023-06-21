@@ -15,7 +15,7 @@ ENV npm_config_unsafe_perm true
 
 # Chrome dependencies
 RUN apk add bash
-RUN apk add update && apt-get install --yes apt-utils
+RUN apk update && apk add --no-cache git
 RUN apt add install -yes apt-transport-https
 
 ENV CHROME_VERSION 114.0.5735.90
