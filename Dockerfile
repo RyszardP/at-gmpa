@@ -17,16 +17,14 @@ ENV npm_config_unsafe_perm true
 RUN apt-get update
 RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
 
-RUN curl -L https://download.oracle.com/java/11/latest/jdk-11_linux-x64_bin.tar.gz \
- -o /tmp/jdk-11_linux-x64_bin.tar.gz \
- && tar zxvf /tmp/jdk-11_linux-x64_bin.tar.gz -C /opt \
- && rm /tmp/jdk-11_linux-x64_bin.tar.gz \
- && ln -s /opt/jdk-11/bin/java /usr/local/bin/java
+RUN apt-get update \
+ && apt-get install -y wget \
+ && mkdir -p /usr/share/man/man1 \
+ && apt-get install -y openjdk-11-jdk
 ENV JAVA_HOME /opt/jdk-11
 
-RUN echo "export JAVA_HOME=/opt/jdk-11" >> /etc/environment
-RUN source /etc/environment
-RUN javac -version
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
+ENV PATH $JAVA_HOME/bin:$PATH
 
 ENV CHROME_VERSION 114.0.5735.90
 RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb" && \
