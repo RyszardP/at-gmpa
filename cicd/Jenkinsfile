@@ -12,4 +12,8 @@ pipeline {
             }
         }
     }
+     triggers {
+            githubPush()
+            githubPullRequest()
+        }
 }
