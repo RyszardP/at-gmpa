@@ -1,4 +1,4 @@
-FROM node:20-bullseye
+FROM node:bullseye-slim
 
 # INSTALL NPM
 RUN npm install -g npm@latest
