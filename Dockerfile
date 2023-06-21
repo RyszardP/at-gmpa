@@ -35,7 +35,7 @@ RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.co
 RUN google-chrome --version
 
 # INSTALL PACKAGES
-#WORKDIR /usr/wdiowithoutgrid/
+WORKDIR /usr/wdiowithoutgrid/
 COPY package*.json ./
 COPY . .
 EXPOSE 8080
