@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:18-alpine
 
 # INSTALL NPM
 RUN npm install -g npm@latest
