@@ -7,7 +7,7 @@ const allure = require('allure-commandline');
 export const config = {
   baseUrl: initUrl.rp_ui.baseUrl,
   specs: ['./features/**/*.feature'],
-  port: '4444',
+  port: 4444,
   capabilities: [
     {
       maxInstances: argv['max-threads'] || 2,
