@@ -15,8 +15,8 @@ ENV npm_config_unsafe_perm true
 
 # Chrome dependencies
 RUN apk add bash
-RUN apt-get update
-RUN apt-get install -y fonts-liberation libappindicator3-1 xdg-utils
+RUN apt-get update && apt-get install --yes apt-utils
+RUN apt-get install -yes apt-transport-https
 
 ENV CHROME_VERSION 114.0.5735.90
 RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb" && \
