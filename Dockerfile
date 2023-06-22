@@ -37,13 +37,12 @@ RUN google-chrome --version
 WORKDIR /usr/lib/wdio
 COPY package.json /usr/lib/wdio
 
-RUN npm install \
-    # Clean up obsolete files:
-    && rm -rf \
-    /tmp/* \
-    /root/.npm
-
-COPY . /usr/lib/wdio
+# INSTALL PACKAGES
+WORKDIR /usr/wdiowithoutgrid/
+COPY package*.json ./
+COPY . .
+EXPOSE 8080
+RUN npm install
 
 # Display versions of local tools
 RUN echo  " node version:    $(node -v) \n" \
