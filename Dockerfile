@@ -34,10 +34,6 @@ RUN wget -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.co
 RUN google-chrome --version
 
 # INSTALL PACKAGES
-WORKDIR /usr/lib/wdio
-COPY package.json /usr/lib/wdio
-
-# INSTALL PACKAGES
 WORKDIR /usr/wdiowithoutgrid/
 COPY package*.json ./
 COPY . .
