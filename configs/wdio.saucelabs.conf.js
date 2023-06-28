@@ -29,6 +29,7 @@ config.capabilities = [
     platformName: 'Windows 10',
     browserVersion: 'latest',
     'sauce:options': {
+      tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER,
       ...defaultBrowserSauceOptions,
     },
   },
