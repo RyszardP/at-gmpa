@@ -1,7 +1,4 @@
 const { config } = require('./wdio.shared.conf');
-const defaultBrowserSauceOptions = {
-  build: `WebdriverIO Sauce Connect build-${new Date().getTime()}`,
-};
 
 // ============================================
 // Add the Sauce Service, see
@@ -25,8 +22,8 @@ config.capabilities = [
     region: 'eu',
     'sauce:options': {
       name: 'atgmpa',
-      tunnelIdentifier: null,
-      ...defaultBrowserSauceOptions,
+      tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER,
+      build: `WebdriverIO Sauce Connect build-${new Date().getTime()}`,
     },
   },
 ];
