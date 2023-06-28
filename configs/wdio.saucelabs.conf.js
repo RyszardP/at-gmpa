@@ -1,12 +1,11 @@
 const { config } = require('./wdio.shared.conf');
 const defaultBrowserSauceOptions = {
   build: `WebdriverIO Sauce Connect build-${new Date().getTime()}`,
-  screenResolution: '1600x1200',
 };
 
 config.user = process.env.SAUCE_USERNAME;
 config.key = process.env.SAUCE_ACCESS_KEY;
-config.region = 'eu';
+
 
 // ============================================
 // Add the Sauce Service, see
@@ -28,8 +27,10 @@ config.capabilities = [
     browserName: 'chrome',
     platformName: 'Windows 10',
     browserVersion: 'latest',
+    region: 'eu',
     'sauce:options': {
-      tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER,
+      name: 'atgmpa',
+      tunnelIdentifier: null,
       ...defaultBrowserSauceOptions,
     },
   },
