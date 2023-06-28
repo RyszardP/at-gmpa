@@ -7,7 +7,7 @@ Feature: Open Dashboard page. Add new dashboard, edit and delete
     When Hover on "dashboard" button in side menu
     Then Check "Dashboards" popup is present
     When Click on "dashboard" button
-  @dashboard
+
   Scenario: Add and delete new dashboard
     Then Check "sidebar" is present
     When Hover on "dashboard" button in side menu
@@ -28,7 +28,7 @@ Feature: Open Dashboard page. Add new dashboard, edit and delete
     When Click for "New Dashboard" "Delete" button on All Dashboards page
       And Click on "Delete" button
     Then Check that "New Dashboard" dashboard is absent on All Dashboards page
-  @dashboard
+
   Scenario Outline: (Negative) Add new dashboard with <Name> name and <Description> description
     Then Check "sidebar" is present
     When Hover on "dashboard" button in side menu

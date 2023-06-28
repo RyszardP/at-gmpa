@@ -12,7 +12,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test_docker": "npm run test -- --appurl=http://localhost:8080/ --usr=superadmin --password=erebus --max-threads=1 --tag=@api",
-    "build:image": "docker build -t project/application -f Dockerfile ."
+    "build:image": "docker build -t project/application -f Dockerfile .",
+    "sauce_run":  "wdio run configs/wdio.saucelabs.conf.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/register": "^7.18.9",
     "@cypress/xpath": "^2.0.3",
+    "@slack/webhook": "^6.1.0",
     "@wdio/allure-reporter": "^7.0.0",
     "@wdio/cli": "^7.23.0",
     "@wdio/cucumber-framework": "^7.23.0",
@@ -38,6 +40,7 @@
     "@wdio/mocha-framework": "^7.30.2",
     "@wdio/selenium-standalone-service": "^7.19.5",
     "@wdio/spec-reporter": "^7.23.0",
+    "@wdio/sauce-service": "^7.16.13",
     "allure-commandline": "^2.18.1",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
@@ -70,6 +73,7 @@
     "wdio-chromedriver-service": "latest",
     "wdio-reportportal-reporter": "^7.4.2",
     "wdio-reportportal-service": "^7.0.0",
+    "wdio-slack-service": "2.0.8",
     "winston": "^3.8.1",
     "yargs": "^17.3.1"
   },
