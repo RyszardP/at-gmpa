@@ -2,6 +2,9 @@ exports.config = {
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
 
+  hostname: 'ondemand.eu-central-1.saucelabs.com',
+  port: 443,
+  path: '/wd/hub',
   specs: ['./features/**/*.feature'],
   maxInstances: 100,
   logLevel: 'silent',
