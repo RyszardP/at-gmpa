@@ -1,6 +1,7 @@
 exports.config = {
+  user: process.env.SAUCE_USERNAME,
+  key: process.env.SAUCE_ACCESS_KEY,
 
-  runner: 'local',
   specs: ['./features/**/*.feature'],
   maxInstances: 100,
   logLevel: 'silent',
